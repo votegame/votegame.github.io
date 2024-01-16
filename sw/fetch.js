@@ -1,0 +1,1 @@
+self.addEventListener("fetch",(function(e){const t=new URL(e.request.url);"GET"===e.request.method.toUpperCase()&&t.origin.startsWith(self.location.origin)&&/^\/(assets)\//.test(t.pathname)&&e.respondWith(caches.match(e.request).then((t=>t||fetch(e.request).then((t=>{var s=t.clone();return caches.open(VG_CACHE_WHITELIST).then((n=>n.put(e.request,s).then((()=>t))))})))))}));
